@@ -15,7 +15,7 @@ const input = [16,1,2,0,4,2,7,1,2,14];
 
 // Part 1
 
-// Returns provied list of values in order from lowest to highest
+// Returns provided list of values in order from lowest to highest
 function sortArray(inputArr) {
     const sortedArr = inputArr.sort((a, b) => a - b);
     return sortedArr;
