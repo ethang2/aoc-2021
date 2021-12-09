@@ -38,3 +38,36 @@ function calculateTotalFuelCost(median, sortedArr) {
 }
 
 console.log(calculateTotalFuelCost(calculateMedian(sortArray(input2)), sortArray(input2)));
+
+// Part 2
+
+function findMidpoints(sortedArr) {
+    const sum = sortedArr.reduce((previousValue, currentValue) => previousValue + currentValue);
+
+    const avg1 = Math.round(sum / sortedArr.length);
+    const avg2 = Math.floor(sum / sortedArr.length);
+
+    return [avg1, avg2];
+
+}
+
+function calculateTotalFuelCost2(targets, sortedArr) {
+    let fuelCosts = [0, 0];
+    for (let j = 0; j < 2; j++) {
+        sortedArr.forEach(value => {
+            let cost = Math.abs(value - targets[j]);
+            for (let i = 0; i < cost; i++) {
+                fuelCosts[j] += (i + 1);
+            }
+        });
+    }
+    if (fuelCosts[0] > fuelCosts[1]) {
+        return fuelCosts[1];
+    } else if (fuelCosts[0] < fuelCosts[1]) {
+        return fuelCosts[0];
+    } else {
+        return fuelCosts[0];
+    }
+}
+
+console.log(calculateTotalFuelCost2(findMidpoints(input2), sortArray(input2)));
