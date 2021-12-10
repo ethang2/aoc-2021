@@ -29,3 +29,17 @@ function checkForIncreases(inputArr) {
 }
 
 console.log(checkForIncreases(input2));
+
+// Part 2
+
+function getSums(inputArr) {
+    let sums = [];
+    for (let i = 0; i < inputArr.length; i++) {
+        if (i < (inputArr.length - 2)) {
+            sums.push(inputArr[i] + inputArr[i + 1] + inputArr[i + 2]);
+        }
+    }
+    return sums;
+}
+
+console.log(checkForIncreases(getSums(input2)));
